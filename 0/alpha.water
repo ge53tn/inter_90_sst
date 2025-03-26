@@ -1,23 +1,22 @@
 /*--------------------------------*- C++ -*----------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  6
-     \\/     M anipulation  |
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "0";
     object      alpha.water;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 dimensions      [0 0 0 0 0 0 0];
 
-internalField   uniform 1;
+internalField   uniform 0;
 
 boundaryField
 {
@@ -25,23 +24,26 @@ boundaryField
     {
         type            zeroGradient;
     }
+
     Outlet
     {
         type            inletOutlet;
         inletValue      uniform 1;
         value           uniform 1;
     }
+
     Open
     {
         type            inletOutlet;
         inletValue      uniform 0;
         value           uniform 0;
     }
+
+
     Wall
     {
-        type            zeroGradient;
+	type		zeroGradient;
     }
 }
-
 
 // ************************************************************************* //
