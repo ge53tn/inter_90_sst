@@ -14,7 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-inletWater.stl
+
+Inlet.stl
 {
     extractionMethod	extractFromSurface; // extractFromFile or extractFromSurface
     extractFromSurfaceCoeffs
@@ -22,8 +23,7 @@ inletWater.stl
     writeObj                yes;   // Write options
 }
 
-
-freeSurface.stl
+Open.stl
 {
     extractionMethod	extractFromSurface; // extractFromFile or extractFromSurface
     extractFromSurfaceCoeffs
@@ -31,7 +31,7 @@ freeSurface.stl
     writeObj                yes;   // Write options
 }
 
-outletWater.stl
+Outlet.stl
 {
     extractionMethod	extractFromSurface; // extractFromFile or extractFromSurface
     extractFromSurfaceCoeffs
@@ -39,26 +39,13 @@ outletWater.stl
     writeObj                yes;   // Write options
 }
 
-bedWall.stl
+Wall.stl
 {
     extractionMethod	extractFromSurface; // extractFromFile or extractFromSurface
     extractFromSurfaceCoeffs
     {includedAngle   150;}
     writeObj                yes;   // Write options
 }
-rightSide.stl
-{
-    extractionMethod	extractFromSurface; // extractFromFile or extractFromSurface
-    extractFromSurfaceCoeffs
-    {includedAngle   150;}
-    writeObj                yes;   // Write options
-}
-leftSide.stl
-{
-    extractionMethod	extractFromSurface; // extractFromFile or extractFromSurface
-    extractFromSurfaceCoeffs
-    {includedAngle   150;}
-    writeObj                yes;   // Write options
-}
+
 
 // ************************************************************************* //
