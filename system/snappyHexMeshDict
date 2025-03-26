@@ -28,12 +28,10 @@ addLayers       false;
 // - to 'snap' the mesh boundary to the surface
 geometry
 {
-    inletWater.stl {type triSurfaceMesh; name inletWater;}
-	outletWater.stl {type triSurfaceMesh; name outletWater;}
-	freeSurface.stl {type triSurfaceMesh; name freeSurface;}
-	bedWall.stl {type triSurfaceMesh; name bedWall;}
-	leftSide.stl {type triSurfaceMesh; name leftSide;}
-	rightSide.stl {type triSurfaceMesh; name rightSide;}
+    	Inlet.stl {type triSurfaceMesh; name Inlet;}
+	Outlet.stl {type triSurfaceMesh; name Outlet;}
+	Open.stl {type triSurfaceMesh; name Open;}
+	Wall.stl {type triSurfaceMesh; name Wall;}
 	Volume.stl {type triSurfaceMesh; name Volume;}
 	//refinementBox {type searchableBox; min (18 0 0); max (22 6 2);}
 };
@@ -85,12 +83,10 @@ castellatedMeshControls
     // This is a featureEdgeMesh, read from constant/triSurface for now.
     features
     (
-        {file "inletWater.eMesh";level 0;}
-        {file "outletWater.eMesh";level 0;}
-        {file "freeSurface.eMesh";level 0;}
-        {file "bedWall.eMesh";level 0;}
-		{file "leftSide.eMesh";level 0;}
-		{file "rightSide.eMesh";level 0;}
+        {file "Inlet.eMesh";level 0;}
+        {file "Outlet.eMesh";level 0;}
+        {file "Open.eMesh";level 0;}
+        {file "Wall.eMesh";level 0;}
     );
 
 
@@ -106,12 +102,10 @@ castellatedMeshControls
 
     refinementSurfaces
     {
-        inletWater {level (0 0);}
-        outletWater {level (0 0);}
-        freeSurface {level (0 0);}
-        bedWall {level (0 0);}    
-		rightSide {level (0 0);}      
-		leftSide {level (0 0);}      		
+        Inlet {level (0 0);}
+        Outlet {level (0 0);}
+        Open {level (0 0);}
+        Wall {level (0 0);}      
     }
 
     // Resolve sharp angles
@@ -133,7 +127,8 @@ castellatedMeshControls
 
     refinementRegions 
 	{
-		Volume {mode distance; levels ((0.5 1) (2 1)); } //refinement level 1 in distance 0.5m and 3m 
+Volume {mode distance; levels ((0.5 1) (2 1)); }
+        
     }
 
 
@@ -280,7 +275,7 @@ addLayersControls
 // where to undo.
 meshQualityControls
 {
-    #include "/opt/openfoam6/etc/caseDicts/mesh/generation/meshQualityDict"
+    #include "meshQualityDict"
 
 
     // Advanced
